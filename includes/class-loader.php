@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 class VSAP_Loader
 {
     /**
-     * Load all plugin modules
+     * Initialize Plugin
      */
     public static function init()
     {
@@ -16,7 +16,7 @@ class VSAP_Loader
     }
 
     /**
-     * Core Classes
+     * Load Core Classes
      */
     private static function load_core()
     {
@@ -28,12 +28,14 @@ class VSAP_Loader
     }
 
     /**
-     * Plugin Modules
+     * Load Modules
      */
     private static function load_modules()
     {
-        require_once VSAP_PLUGIN_PATH . 'modules/audit/class-audit.php';
+        require_once VSAP_PLUGIN_PATH . 'modules/audit/class-analyzer.php';
+        require_once VSAP_PLUGIN_PATH . 'modules/audit/class-results.php';
         require_once VSAP_PLUGIN_PATH . 'modules/audit/class-scanner.php';
+        require_once VSAP_PLUGIN_PATH . 'modules/audit/class-audit.php';
 
         VSAP_Audit::init();
     }
